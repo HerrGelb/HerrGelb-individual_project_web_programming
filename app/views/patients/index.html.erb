@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Patients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Patient Id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.id %></td>
+        <td><%= link_to 'Acute', acutes_path() %></td>
+        <td><%= link_to 'Chronic', 
+              :controller => "chronics",
+              :action => "index",
+              :p_id => patient.id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Patient', new_patient_path %>
+<%= link_to 'Homepage', root_path %>
