@@ -1,0 +1,102 @@
+<script language="JavaScript">
+
+<!-- Begin
+
+// Do not change anything below here ...
+function getScore(form) {
+  var numAns = 2;
+  var answers = new Array(numAns);
+  answers[0] = "";
+  answers[1] = "";
+  
+  var i = document.querySelectorAll('input[name="italic"]:checked').length;
+  var ni = document.querySelectorAll('input[name="non-italic"]:checked').length;
+  
+  if (!(i >= 1 && ni + i >= 2)){
+	answers[0] = "you may have an upper respiratory infection or allergies.";
+  }else{
+	answers[0] = "you have sinusitis.";
+	var urgent = form.querySelectorAll('input[name="emergency"]:checked').length;
+	if (urgent > 0){
+		answers[1] = "immediately see your doctor.";
+	}else{
+		if (form.elements["length"] == "less than 5 days"){
+			answers[1] = ("recommend symptomatic treatment with pain control, over the counter decongestants and nasal saline irrigations.");
+		}else if(form.elements["length"] == "over 5-10 days"){
+			if (form.elements["tendency"] == "Better"){
+				answers[1]=("continue with symptomatic treatment with pain control, over the counter decongestants and nasal saline irrigations. See a doctor if your symptoms last more than 10 days or get worse.");
+			}else{
+				answers[1]=("see a doctor.");
+			}
+		}else if(form.elements["length"] == "over 10 days"){
+			answers[1]=("see your doctor for topical steroids and possibly antibiotics.");
+		}else{
+			answers[1]=("you may have chronic sinusitis. See your doctor.");
+		}
+     }
+  }
+ 
+  var correctAnswers = "";
+  for (i=1; i<=numAns; i++) {
+    correctAnswers +=  answers[i-1] + "\r\n";
+  }
+  form.solutions.value = correctAnswers;
+}
+//  End -->
+</script>
+
+</HEAD>
+
+<!-- STEP TWO: Copy this code into the BODY of your HTML document  -->
+
+<BODY>
+
+<h3>Acute Sinusitus Test</h3>
+
+<form name="quiz">
+1. Click on the symptoms you have:
+<ul style="margin-top: 1pt">
+  <li><input type="checkbox" name="italic" value="Nasal congestion">Nasal congestion</li>
+  <li><input type="checkbox" name="italic" value="Nasal drainage">Nasal drainage</li>
+  <li><input type="checkbox" name="non-italic" value="Facial pain or headaches">Facial pain or headaches</li>
+  <li><input type="checkbox" name="non-italic" value="Loss of sense of smell">Loss of sense of smell</li>
+</ul>
+
+2. How long have your symptoms lasted:
+<ul style="margin-top: 1pt">
+  <li><input type="radio" name="length" value="less than 5 days" CHECKED>less than 5 days</li>
+  <li><input type="radio" name="length" value="over 5-10 days">over 5-10 days</li>
+  <li><input type="radio" name="length" value="Over 10 days">Over 10 days</li>
+  <li><input type="radio" name="length" value="Over 3 months">Over 3 months</li>
+</ul>
+3. If over 5 days, have your symptoms been getting worse or better:<br>
+You don't need to answer this question if it's less than 5 days.
+<ul style="margin-top: 1pt">
+  <li><input type="radio" name="tendency" value="Better">Better</li>
+  <li><input type="radio" name="tendency" value="Worse">Worse</li>
+</ul>
+4. Check any of the following symptoms that you have: 
+<ul style="margin-top: 1pt">
+	<li><input type="checkbox" name="emergency" value="swelling or redness around the eye">swelling or redness around the eye</li>
+	<li><input type="checkbox" name="emergency" value="double vision ">double vision</li>
+	<li><input type="checkbox" name="emergency" value="abnormal position of your eye">abnormal position of your eye</li>
+	<li><input type="checkbox" name="emergency" value="inability to move your eye normally">inability to move your eye normally</li>
+	<li><input type="checkbox" name="emergency" value="reduced vision">reduced vision</li>
+	<li><input type="checkbox" name="emergency" value="swelling of your forehead">swelling of your forehead</li>
+	<li><input type="checkbox" name="emergency" value="neurological changes">neurological changes</li>
+	<li><input type="checkbox" name="emergency" value="severe forehead headchess">severe forehead headchess</li>
+	<li><input type="checkbox" name="emergency" value="lethargic">lethargic</li>
+	<li><input type="checkbox" name="emergency" value="altered mental status">altered mental status</li>
+	<li><input type="checkbox" name="emergency" value="neck stiffness">neck stiffness</li>
+</ul>
+
+
+<input type="button" value="Submit test" onClick="getScore(this.form)">
+<input type="reset" value="Clear answers">
+<p> <br>
+Suggestions:<br>
+<textarea class="bgclr" name="solutions" wrap="virtual" rows="10" cols="40" disabled>
+</textarea>
+</form>
+
+<%= link_to 'back to patient', patients_path%>

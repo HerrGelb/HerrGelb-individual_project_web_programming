@@ -14,7 +14,7 @@
     <% @patients.each do |patient| %>
       <tr>
         <td><%= patient.id %></td>
-        <td><%= link_to 'Acute', acutes_path() %></td>
+        <td><%= link_to 'Acute', acute_test_path %></td>
         <td><%= link_to 'Chronic', 
               :controller => "chronics",
               :action => "index",

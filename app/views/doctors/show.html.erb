@@ -29,7 +29,6 @@
     <th>Email</th>
     <th>Chronic Sinusitis history</th>
     <th>Average chronic discomfort score</th>
-    <th>Acute Sinusitis history</th>
     <th>Options</th>
   </thead>
   <tbody>
@@ -57,22 +56,6 @@
       </td>
     <td><%= p.chronic.average(:discomfort_score) %></td>
 
-    <td><table>
-        <thead>
-          <tr>
-            <th>Date recorded</th>
-            <th>Answer</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%p.acute.each do |a| %>
-          <tr>
-            <td><%= a.date_created %></td>
-            <td><%= a.answer %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table></td>
 
       <td>visualization of results(Unimplemented)</td>
 

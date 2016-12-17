@@ -61,6 +61,10 @@ class DoctorsController < ApplicationController
     end
   end
 
+  def plist 
+    Doctor.select("name")
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_doctor
@@ -72,7 +76,5 @@ class DoctorsController < ApplicationController
       params.require(:doctor).permit(:name, :email, :password)
     end
 end
-def plist
-  
-  Doctor.select("name")
-end
+
+

@@ -1,1 +1,0 @@
-json.array! @acutes, partial: 'acutes/acute', as: :acute
