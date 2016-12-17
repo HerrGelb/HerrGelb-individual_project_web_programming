@@ -1271,3 +1271,475 @@ Processing by AcutesController#new as HTML
 Completed 200 OK in 447ms (Views: 435.7ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/doctors" for 127.0.0.1 at 2016-12-17 10:16:09 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DoctorsController#index as HTML
+  Rendering doctors/index.html.erb within layouts/application
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  Rendered doctors/index.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 478ms (Views: 452.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-17 10:16:15 -0500
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 100ms (Views: 98.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2016-12-17 10:16:16 -0500
+Processing by PatientsController#index as HTML
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  Rendered patients/index.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 117ms (Views: 102.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/acutes" for 127.0.0.1 at 2016-12-17 10:16:19 -0500
+Processing by AcutesController#index as HTML
+  Rendering acutes/index.html.erb within layouts/application
+  [1m[36mAcute Load (0.2ms)[0m  [1m[34mSELECT "acutes".* FROM "acutes"[0m
+  Rendered acutes/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 91ms (Views: 85.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/acutes/new" for 127.0.0.1 at 2016-12-17 10:16:21 -0500
+Processing by AcutesController#new as HTML
+  Rendering acutes/new.html.erb within layouts/application
+  Rendered acutes/_form.html.erb (34.8ms)
+  Rendered acutes/new.html.erb within layouts/application (37.8ms)
+Completed 200 OK in 137ms (Views: 122.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-17 16:08:18 -0500
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 90ms (Views: 88.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2016-12-17 16:08:28 -0500
+Processing by PatientsController#index as HTML
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  Rendered patients/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 79ms (Views: 77.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/acutes" for 127.0.0.1 at 2016-12-17 16:08:33 -0500
+Processing by AcutesController#index as HTML
+  Rendering acutes/index.html.erb within layouts/application
+  [1m[36mAcute Load (0.2ms)[0m  [1m[34mSELECT "acutes".* FROM "acutes"[0m
+  Rendered acutes/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 103ms (Views: 100.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/chronics?p_id=1" for 127.0.0.1 at 2016-12-17 16:08:55 -0500
+Processing by ChronicsController#index as HTML
+  Parameters: {"p_id"=>"1"}
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.2ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = '1')[0m
+  Rendered chronics/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 116ms (Views: 111.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/chronics/new" for 127.0.0.1 at 2016-12-17 16:08:58 -0500
+Processing by ChronicsController#new as HTML
+  Rendering chronics/new.html.erb within layouts/application
+  Rendered chronics/_form.html.erb (7.7ms)
+  Rendered chronics/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 121ms (Views: 102.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/chronics" for 127.0.0.1 at 2016-12-17 16:09:14 -0500
+Processing by ChronicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iecNkdYyyW+siOj4O16krHpjv4U+L1aYBcRxZ3gwOtQ5nPGkdtAW7mtykxaFA6NTp3N7Mdarj4mnRvVBzD595A==", "chronic"=>{"patient_id"=>"1", "date_created(1i)"=>"2016", "date_created(2i)"=>"12", "date_created(3i)"=>"17", "date_created(4i)"=>"21", "date_created(5i)"=>"08", "discomfort_score"=>"6"}, "commit"=>"Create Chronic"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "chronics" ("date_created", "discomfort_score", "patient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_created", 2016-12-17 21:08:00 UTC], ["discomfort_score", 6.0], ["patient_id", 1], ["created_at", 2016-12-17 21:09:14 UTC], ["updated_at", 2016-12-17 21:09:14 UTC]]
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/chronics/1
+Completed 302 Found in 67ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/chronics/1" for 127.0.0.1 at 2016-12-17 16:09:14 -0500
+Processing by ChronicsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mChronic Load (0.2ms)[0m  [1m[34mSELECT  "chronics".* FROM "chronics" WHERE "chronics"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering chronics/show.html.erb within layouts/application
+  Rendered chronics/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 92ms (Views: 86.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/chronics" for 127.0.0.1 at 2016-12-17 16:09:17 -0500
+Processing by ChronicsController#index as HTML
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.3ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = NULL)[0m
+  Rendered chronics/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 134ms (Views: 131.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2016-12-17 16:09:25 -0500
+Processing by PatientsController#index as HTML
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  Rendered patients/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 102ms (Views: 100.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/chronics?p_id=1" for 127.0.0.1 at 2016-12-17 16:09:26 -0500
+Processing by ChronicsController#index as HTML
+  Parameters: {"p_id"=>"1"}
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.3ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = '1')[0m
+  Rendered chronics/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 136ms (Views: 134.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/chronics/new" for 127.0.0.1 at 2016-12-17 16:09:40 -0500
+Processing by ChronicsController#new as HTML
+  Rendering chronics/new.html.erb within layouts/application
+  Rendered chronics/_form.html.erb (8.2ms)
+  Rendered chronics/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 113ms (Views: 110.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/chronics" for 127.0.0.1 at 2016-12-17 16:09:45 -0500
+Processing by ChronicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hUH7On/C6Dx3k2/cdyKtalUKF2ZPOUhRXLzmyPip2nQ1OgcP3yA3vbBpFDLJf6qViBrT0qe9kUD+PmLuTKedRA==", "chronic"=>{"patient_id"=>"1", "date_created(1i)"=>"2016", "date_created(2i)"=>"12", "date_created(3i)"=>"17", "date_created(4i)"=>"21", "date_created(5i)"=>"09", "discomfort_score"=>"8"}, "commit"=>"Create Chronic"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "chronics" ("date_created", "discomfort_score", "patient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_created", 2016-12-17 21:09:00 UTC], ["discomfort_score", 8.0], ["patient_id", 1], ["created_at", 2016-12-17 21:09:45 UTC], ["updated_at", 2016-12-17 21:09:45 UTC]]
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/chronics/2
+Completed 302 Found in 25ms (ActiveRecord: 11.3ms)
+
+
+Started GET "/chronics/2" for 127.0.0.1 at 2016-12-17 16:09:45 -0500
+Processing by ChronicsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mChronic Load (1.0ms)[0m  [1m[34mSELECT  "chronics".* FROM "chronics" WHERE "chronics"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering chronics/show.html.erb within layouts/application
+  Rendered chronics/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 110ms (Views: 105.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/chronics" for 127.0.0.1 at 2016-12-17 16:09:50 -0500
+Processing by ChronicsController#index as HTML
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.2ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = NULL)[0m
+  Rendered chronics/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 100ms (Views: 98.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2016-12-17 16:09:56 -0500
+Processing by PatientsController#index as HTML
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  Rendered patients/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 110ms (Views: 107.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/chronics?p_id=1" for 127.0.0.1 at 2016-12-17 16:09:59 -0500
+Processing by ChronicsController#index as HTML
+  Parameters: {"p_id"=>"1"}
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.3ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = '1')[0m
+  Rendered chronics/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 104ms (Views: 102.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/chronics/new" for 127.0.0.1 at 2016-12-17 16:11:18 -0500
+Processing by ChronicsController#new as HTML
+  Rendering chronics/new.html.erb within layouts/application
+  Rendered chronics/_form.html.erb (13.0ms)
+  Rendered chronics/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 101ms (Views: 96.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/chronics/new" for 127.0.0.1 at 2016-12-17 16:11:24 -0500
+Processing by ChronicsController#new as HTML
+  Rendering chronics/new.html.erb within layouts/application
+  Rendered chronics/_form.html.erb (9.9ms)
+  Rendered chronics/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 117ms (Views: 114.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/chronics" for 127.0.0.1 at 2016-12-17 16:12:20 -0500
+Processing by ChronicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OccpoYDbfuf1ew9LanXO/ypi2KGj4twxv2HFVm660syJvNWUIDmhZjKBdKXUKMkA93IcFUtmBSAd40Fw2rSV/A==", "chronic"=>{"patient_id"=>"1", "date_created(1i)"=>"2016", "date_created(2i)"=>"12", "date_created(3i)"=>"17", "date_created(4i)"=>"21", "date_created(5i)"=>"11", "discomfort_score"=>"8"}, "commit"=>"Create Chronic"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "chronics" ("date_created", "discomfort_score", "patient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_created", 2016-12-17 21:11:00 UTC], ["discomfort_score", 8.0], ["patient_id", 1], ["created_at", 2016-12-17 21:12:20 UTC], ["updated_at", 2016-12-17 21:12:20 UTC]]
+  [1m[35m (14.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/chronics/3
+Completed 302 Found in 28ms (ActiveRecord: 15.5ms)
+
+
+Started GET "/chronics/3" for 127.0.0.1 at 2016-12-17 16:12:20 -0500
+Processing by ChronicsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mChronic Load (0.1ms)[0m  [1m[34mSELECT  "chronics".* FROM "chronics" WHERE "chronics"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering chronics/show.html.erb within layouts/application
+  Rendered chronics/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 84ms (Views: 81.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/chronics" for 127.0.0.1 at 2016-12-17 16:14:04 -0500
+Processing by ChronicsController#index as HTML
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.2ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = NULL)[0m
+  Rendered chronics/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 95ms (Views: 93.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/chronics" for 127.0.0.1 at 2016-12-17 16:14:08 -0500
+Processing by ChronicsController#index as HTML
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.3ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = NULL)[0m
+  Rendered chronics/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 90ms (Views: 85.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/chronics" for 127.0.0.1 at 2016-12-17 16:14:10 -0500
+Processing by ChronicsController#index as HTML
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.2ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = NULL)[0m
+  Rendered chronics/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 71ms (Views: 68.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2016-12-17 16:14:14 -0500
+Processing by PatientsController#index as HTML
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  Rendered patients/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 105ms (Views: 103.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/chronics?p_id=1" for 127.0.0.1 at 2016-12-17 16:14:16 -0500
+Processing by ChronicsController#index as HTML
+  Parameters: {"p_id"=>"1"}
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (1.6ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = '1')[0m
+  Rendered chronics/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 89ms (Views: 86.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2016-12-17 16:16:52 -0500
+Processing by PatientsController#index as HTML
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  Rendered patients/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 82ms (Views: 78.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/chronics?p_id=1" for 127.0.0.1 at 2016-12-17 16:16:54 -0500
+Processing by ChronicsController#index as HTML
+  Parameters: {"p_id"=>"1"}
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.5ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = '1')[0m
+  Rendered chronics/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 116ms (Views: 114.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/chronics/new" for 127.0.0.1 at 2016-12-17 16:16:56 -0500
+Processing by ChronicsController#new as HTML
+  Rendering chronics/new.html.erb within layouts/application
+  Rendered chronics/_form.html.erb (13.5ms)
+  Rendered chronics/new.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 96ms (Views: 94.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/chronics" for 127.0.0.1 at 2016-12-17 16:17:01 -0500
+Processing by ChronicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Slla8cl7BwagSPbMCLChzvU0Coq7aaHfkR2ZeXtJZUP6IqbEaZnYh2eyjSK27aYxKCTOPlPteM4znx1fz0cicw==", "chronic"=>{"patient_id"=>"1", "date_created(1i)"=>"2016", "date_created(2i)"=>"12", "date_created(3i)"=>"17", "date_created(4i)"=>"21", "date_created(5i)"=>"16", "discomfort_score"=>"6"}, "commit"=>"Create Chronic"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "chronics" ("date_created", "discomfort_score", "patient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_created", 2016-12-17 21:16:00 UTC], ["discomfort_score", 6.0], ["patient_id", 1], ["created_at", 2016-12-17 21:17:01 UTC], ["updated_at", 2016-12-17 21:17:01 UTC]]
+  [1m[35m (297.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/chronics/4
+Completed 302 Found in 309ms (ActiveRecord: 298.7ms)
+
+
+Started GET "/chronics/4" for 127.0.0.1 at 2016-12-17 16:17:01 -0500
+Processing by ChronicsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mChronic Load (0.1ms)[0m  [1m[34mSELECT  "chronics".* FROM "chronics" WHERE "chronics"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering chronics/show.html.erb within layouts/application
+  Rendered chronics/show.html.erb within layouts/application (253.6ms)
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `patient' for #<#<Class:0xa54ec64>:0xdddd06c>
+Did you mean?  patient_url):
+    18: <%= link_to 'Edit', edit_chronic_path(@chronic) %> |
+    19: <%= link_to 'Back', :controller => "chronics",
+    20:               :action => "index",
+    21:               :p_id => patient.id  %>
+  
+app/views/chronics/show.html.erb:21:in `_app_views_chronics_show_html_erb__561975441_116320970'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.8ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (49.4ms)
+Started GET "/chronics/4" for 127.0.0.1 at 2016-12-17 16:19:22 -0500
+Processing by ChronicsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mChronic Load (0.2ms)[0m  [1m[34mSELECT  "chronics".* FROM "chronics" WHERE "chronics"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering chronics/show.html.erb within layouts/application
+  Rendered chronics/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 105ms (Views: 101.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/chronics?p_id=p_id" for 127.0.0.1 at 2016-12-17 16:19:24 -0500
+Processing by ChronicsController#index as HTML
+  Parameters: {"p_id"=>"p_id"}
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.3ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = 'p_id')[0m
+  Rendered chronics/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 97ms (Views: 95.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-17 16:21:18 -0500
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 77ms (Views: 74.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2016-12-17 16:21:20 -0500
+Processing by PatientsController#index as HTML
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  Rendered patients/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 86ms (Views: 83.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/chronics?p_id=1" for 127.0.0.1 at 2016-12-17 16:21:22 -0500
+Processing by ChronicsController#index as HTML
+  Parameters: {"p_id"=>"1"}
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (1.6ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = '1')[0m
+  Rendered chronics/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 96ms (Views: 92.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/chronics?p_id=1" for 127.0.0.1 at 2016-12-17 16:21:32 -0500
+Processing by ChronicsController#index as HTML
+  Parameters: {"p_id"=>"1"}
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.2ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = '1')[0m
+  Rendered chronics/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 108ms (Views: 105.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/chronics/new" for 127.0.0.1 at 2016-12-17 16:21:33 -0500
+Processing by ChronicsController#new as HTML
+  Rendering chronics/new.html.erb within layouts/application
+  Rendered chronics/_form.html.erb (14.6ms)
+  Rendered chronics/new.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 97ms (Views: 95.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/chronics" for 127.0.0.1 at 2016-12-17 16:21:38 -0500
+Processing by ChronicsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D1FckAWu34cahWRMVNKAxBAzrQFuZD9HN/JEp2bo2Rq/KqClpUwABt1/H6Lqj4c7zSNptYbg5laVcMCB0uaeKg==", "chronic"=>{"patient_id"=>"1", "date_created(1i)"=>"2016", "date_created(2i)"=>"12", "date_created(3i)"=>"17", "date_created(4i)"=>"21", "date_created(5i)"=>"21", "discomfort_score"=>"3"}, "commit"=>"Create Chronic"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "chronics" ("date_created", "discomfort_score", "patient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_created", 2016-12-17 21:21:00 UTC], ["discomfort_score", 3.0], ["patient_id", 1], ["created_at", 2016-12-17 21:21:38 UTC], ["updated_at", 2016-12-17 21:21:38 UTC]]
+  [1m[35m (32.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/chronics/5
+Completed 302 Found in 41ms (ActiveRecord: 33.8ms)
+
+
+Started GET "/chronics/5" for 127.0.0.1 at 2016-12-17 16:21:38 -0500
+Processing by ChronicsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mChronic Load (0.2ms)[0m  [1m[34mSELECT  "chronics".* FROM "chronics" WHERE "chronics"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering chronics/show.html.erb within layouts/application
+  Rendered chronics/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 85ms (Views: 80.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2016-12-17 16:21:40 -0500
+Processing by PatientsController#index as HTML
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  Rendered patients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 99ms (Views: 97.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/chronics?p_id=1" for 127.0.0.1 at 2016-12-17 16:21:44 -0500
+Processing by ChronicsController#index as HTML
+  Parameters: {"p_id"=>"1"}
+  Rendering chronics/index.html.erb within layouts/application
+  [1m[36mChronic Load (0.3ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE (patient_id = '1')[0m
+  Rendered chronics/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 112ms (Views: 109.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-17 16:23:05 -0500
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 87ms (Views: 85.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/doctors" for 127.0.0.1 at 2016-12-17 16:23:07 -0500
+Processing by DoctorsController#index as HTML
+  Rendering doctors/index.html.erb within layouts/application
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  Rendered doctors/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 122ms (Views: 120.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/doctors/1" for 127.0.0.1 at 2016-12-17 16:23:11 -0500
+Processing by DoctorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT  "doctors".* FROM "doctors" WHERE "doctors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering doctors/show.html.erb within layouts/application
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."doctor_id" = ?[0m  [["doctor_id", 1]]
+  [1m[36mChronic Load (0.3ms)[0m  [1m[34mSELECT "chronics".* FROM "chronics" WHERE "chronics"."patient_id" = ?[0m  [["patient_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT AVG("chronics"."discomfort_score") FROM "chronics" WHERE "chronics"."patient_id" = ?[0m  [["patient_id", 1]]
+  [1m[36mAcute Load (0.2ms)[0m  [1m[34mSELECT "acutes".* FROM "acutes" WHERE "acutes"."patient_id" = ?[0m  [["patient_id", 1]]
+  Rendered doctors/show.html.erb within layouts/application (310.1ms)
+Completed 200 OK in 396ms (Views: 389.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/doctors" for 127.0.0.1 at 2016-12-17 16:23:34 -0500
+Processing by DoctorsController#index as HTML
+  Rendering doctors/index.html.erb within layouts/application
+  [1m[36mDoctor Load (0.3ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors"[0m
+  Rendered doctors/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 110ms (Views: 108.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-12-17 16:23:46 -0500
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 104ms (Views: 102.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/patients" for 127.0.0.1 at 2016-12-17 16:23:47 -0500
+Processing by PatientsController#index as HTML
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  Rendered patients/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 99ms (Views: 96.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/acutes" for 127.0.0.1 at 2016-12-17 16:24:00 -0500
+Processing by AcutesController#index as HTML
+  Rendering acutes/index.html.erb within layouts/application
+  [1m[36mAcute Load (0.4ms)[0m  [1m[34mSELECT "acutes".* FROM "acutes"[0m
+  Rendered acutes/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 89ms (Views: 86.6ms | ActiveRecord: 0.4ms)
+
+
