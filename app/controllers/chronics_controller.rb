@@ -7,10 +7,7 @@ class ChronicsController < ApplicationController
     @chronics = Chronic.where("patient_id = ?", params[:p_id])
   end
 
-  # GET /chronics/1
-  # GET /chronics/1.json
-  def show
-  end
+
 
   # GET /chronics/new
   def new
@@ -57,7 +54,7 @@ class ChronicsController < ApplicationController
   def destroy
     @chronic.destroy
     respond_to do |format|
-      format.html { redirect_to chronics_url, notice: 'Chronic was successfully destroyed.' }
+      format.html { redirect_to patients_path, notice: 'Chronic was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

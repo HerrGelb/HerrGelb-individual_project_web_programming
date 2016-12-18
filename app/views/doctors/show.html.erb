@@ -56,12 +56,9 @@
       </td>
     <td><%= p.chronic.average(:discomfort_score) %></td>
 
-
-      <td>visualization of results(Unimplemented)</td>
-
       </tr>
         <% end %>
       </tbody>
     </table>
 </div>
-<p><%= link_to 'Back', doctors_path %></p>
+<p><%= link_to 'Back', doctors_path, class: 'btn btn-success'%></p>
