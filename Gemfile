@@ -35,14 +35,6 @@ gem 'factory_girl_rails'
 # gem 'capistrano-rails', group: :development
 # Cucumber
 group :development, :test do
-  gem 'cucumber-rails', :require => false
-  # database_cleaner is not required, but highly recommended
-   gem 'cucumber-rails-training-wheels'
-   gem 'database_cleaner'
-   gem 'capybara'
-   gem 'launchy'
-   gem 'selenium-webdriver'
-  gem 'database_cleaner'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
@@ -66,4 +58,12 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
+end
+
+group :devlopment, :test do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
