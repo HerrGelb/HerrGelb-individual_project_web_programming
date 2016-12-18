@@ -5,6 +5,7 @@ Feature: patient page
 
 
   Scenario: Take acute test
+    Given I have created a patient
     Given I'm on the patient's page
     When I click on the button for acute
     Then I should be able to see the acute test page
