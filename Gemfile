@@ -60,7 +60,7 @@ group :development, :test do
   gem 'launchy'
 end
 
-group :devlopment, :test do
+group :development, :test do
   gem 'sqlite3'
 end
 
