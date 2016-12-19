@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg'
 
 gem 'factory_girl_rails'
+
+gem 'newrelic_rpm'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
